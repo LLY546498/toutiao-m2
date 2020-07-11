@@ -75,3 +75,9 @@
 .icon-wode:before {
   content: "\e60e";
 }
+.page-nav-bar {
+  background-color: #3196fa !important;
+}
+.page-nav-bar .van-nav-bar__title {
+  color: #fff;
+}
