@@ -80,6 +80,7 @@ body {
 }
 .page-nav-bar {
   background-color: #3196fa !important;
+  color: #fff;
 }
 .page-nav-bar .van-nav-bar__title {
   color: #fff;
