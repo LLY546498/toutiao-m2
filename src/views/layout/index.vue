@@ -1,10 +1,22 @@
  <template>
   <div class="layout-container">
-    <van-tabbar v-model="active" fixed route>
-      <van-tabbar-item replace to="/" icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item replace to="/qa" icon="comment-o">问答</van-tabbar-item>
-      <van-tabbar-item replace to="/video" icon="video-o">视频</van-tabbar-item>
-      <van-tabbar-item replace to="/my" icon="manager-o">我的</van-tabbar-item>
+    <van-tabbar class="layout-tabbar" v-model="active" fixed route>
+      <van-tabbar-item replace to="/">
+      <i slot='icon' class="iconfont icon-shouye"></i>
+      <span class="text">首页</span>
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/qa">
+      <i slot='icon' class="iconfont icon-wenda"></i>
+      <span class="text">问答</span>
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/video">
+      <i slot='icon' class="iconfont icon-shipin"></i>
+      <span class="text">视频</span>
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/my">
+      <i slot='icon' class="iconfont icon-wode"></i>
+      <span class="text">我的</span>
+      </van-tabbar-item>
     </van-tabbar>
     <router-view></router-view>
   </div>
@@ -28,4 +40,15 @@ export default {
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.layout-container {
+  .layout-tabbar {
+    i.iconfont {
+      font-size: 40px;
+    }
+    span.text {
+      font-size: 20px;
+    }
+  }
+}
+</style>
