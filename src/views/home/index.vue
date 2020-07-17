@@ -9,6 +9,7 @@
         slot="title"
         icon="search"
         round type="info"
+        to="/search"
         >搜索</van-button>
     </van-nav-bar>
     <!-- tab标签栏 频道列表 -->
@@ -69,7 +70,7 @@ export default {
     return {
       active: 0,
       channels: [],
-      isChannelEditShow: true
+      isChannelEditShow: false
     }
   },
   computed: {
