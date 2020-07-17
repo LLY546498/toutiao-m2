@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import store from '@/store/'
 
 // 用户登录
 export const login = data => {
@@ -21,9 +20,16 @@ export const sendSms = mobile => {
 export const getUserInfo = () => {
   return request({
     method: 'GET',
-    url: '/app/v1_0/user',
-    headers: {
-      Authorization: `Bearer ${store.state.user.token}`
-    }
+    url: '/app/v1_0/user'
+    // headers: {
+    //   Authorization:
+    // }
+  })
+}
+// 获取用户频道列表
+export const getUserChannels = () => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/user/channels'
   })
 }
