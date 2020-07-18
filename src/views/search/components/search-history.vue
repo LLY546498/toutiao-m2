@@ -1,36 +1,54 @@
  <template>
   <div class="search-history">
     <van-cell title="搜索历史" >
-      <span>全部删除</span>
+      <div v-if="isDeleteShow">
+        <span @click="$emit('upDate-histories', [])">全部删除</span>
       &nbsp;&nbsp;
-      <span>完成</span>
-      <!-- <van-icon name="delete"></van-icon> -->
+      <span @click="isDeleteShow=false">完成</span>
+      </div>
+      <van-icon v-else name="delete" @click="isDeleteShow = true"></van-icon>
     </van-cell>
-    <van-cell title="历史记录" value="内容" >
-      <van-icon name="close"></van-icon>
-    </van-cell>
-    <van-cell title="历史记录" value="内容" >
-      <van-icon name="close"></van-icon>
-    </van-cell>
-    <van-cell title="历史记录" value="内容" >
-      <van-icon name="close"></van-icon>
+    <van-cell
+      v-for="(item,index) in searchHistories"
+      :key="index"
+       @click="onDelete(item,index)"
+      :title="item">
+      <van-icon v-show="isDeleteShow" name="close"></van-icon>
     </van-cell>
   </div>
 </template>
 
 <script>
+// import { setItem } from '@/utils/storge'
 export default {
   name: 'SearchHistory',
   components: {},
-  props: {},
+  props: {
+    searchHistories: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
-    return {}
+    return {
+      isDeleteShow: false
+    }
   },
   computed: {},
-  watch: {},
+  watch: {
+  },
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    onDelete (item, index) {
+      if (this.isDeleteShow) {
+        this.searchHistories.splice(index, 1)
+        // setItem('search-histories', this.searchHistories)
+      } else {
+        this.$emit('search', item)
+      }
+    }
+  }
 }
 </script>
 
